@@ -1,6 +1,7 @@
 package org.programus.android.floatings;
 
 import org.programus.android.floatings.receivers.LockScreenReceiver;
+import org.programus.android.floatings.services.MemoryService;
 import org.programus.android.floatings.services.NetSpeedService;
 import org.programus.android.floatings.services.SleepService;
 import org.programus.android.floatings.utils.Utilities;
@@ -69,6 +70,9 @@ public class SettingsActivity extends Activity {
 		
         CheckBox netCheckbox = (CheckBox) this.findViewById(R.id.netSwitchCheckbox);
         netCheckbox.setOnCheckedChangeListener(new CheckedChangeListener(NetSpeedService.class));
+
+        final CheckBox memoryCheckbox = (CheckBox) this.findViewById(R.id.memoryCheckbox);
+        memoryCheckbox.setOnCheckedChangeListener(new CheckedChangeListener(MemoryService.class));
         
         final CheckBox sleepCheckbox = (CheckBox) this.findViewById(R.id.sleepSwitchCheckbox);
         final OnCheckedChangeListener sleepListener = new CheckedChangeListener(SleepService.class);

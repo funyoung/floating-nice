@@ -1,6 +1,7 @@
 package org.programus.android.floatings.receivers;
 
 import org.programus.android.floatings.Constants;
+import org.programus.android.floatings.services.MemoryService;
 import org.programus.android.floatings.services.NetSpeedService;
 import org.programus.android.floatings.services.SleepService;
 import org.programus.android.floatings.utils.Utilities;
@@ -33,7 +34,7 @@ public class BootReceiver extends BroadcastReceiver {
 
         // Services need to be started.
         @SuppressWarnings("rawtypes")
-        Class[] services = new Class[] { NetSpeedService.class, SleepService.class };
+        Class[] services = new Class[] { NetSpeedService.class, SleepService.class, MemoryService.class };
         for (Class<? extends Service> sClass : services) {
             // Start the service only when the service is started in previous
             // saved record.

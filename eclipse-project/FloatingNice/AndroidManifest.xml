@@ -29,6 +29,8 @@
         </service>
         <service android:name=".services.NetSpeedService" >
         </service>
+        <service android:name=".services.MemoryService" >
+        </service>
 
         <receiver
             android:name=".receivers.LockScreenReceiver"

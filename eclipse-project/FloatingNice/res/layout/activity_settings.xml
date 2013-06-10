@@ -27,6 +27,6 @@
             android:id="@+id/memoryCheckbox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/show_netspeed_floating" />
+            android:text="@string/show_memory_floating" />
 
 </LinearLayout>

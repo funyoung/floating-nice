@@ -126,14 +126,19 @@ public class SleepService extends FloatingService {
 	}
 
     private Animation mShakeAnimation;
+    private int mCurrentDir = -1;
     private void shakeAnimation(View view) {
         if (null == mShakeAnimation) {
             mShakeAnimation = AnimationUtils.loadAnimation(this, R.anim.shake);
         }
         view.startAnimation(mShakeAnimation);
     }
-    
+
 	private void rotateMenuImage(int dir) {
+        if (dir == mCurrentDir) {
+            return;
+        }
+        mCurrentDir = dir;
 		if (this.image != null) {
 			this.image.setImageBitmap(this.menubmps[dir]);
             shakeAnimation(this.image);
@@ -486,6 +491,7 @@ public class SleepService extends FloatingService {
 			this.showDownView(image, this.crossDir);
 			this.showSoundView(image, this.crossDir);
 			this.showClipView(image, this.crossDir, this.xDir);
+            mCurrentDir = -1;
 			extended = true;
 			Log.d("DEBUG", "changed to big icon");
 			handler.sendEmptyMessageDelayed(0, TIMEOUT);

@@ -3,6 +3,8 @@ package org.programus.android.floatings.services;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import org.programus.android.floatings.Constants;
 import org.programus.android.floatings.R;
 import org.programus.android.floatings.SettingsActivity;
@@ -122,10 +124,19 @@ public class SleepService extends FloatingService {
 			this.menubmps[i] = bm;
 		}
 	}
-	
+
+    private Animation mShakeAnimation;
+    private void shakeAnimation(View view) {
+        if (null == mShakeAnimation) {
+            mShakeAnimation = AnimationUtils.loadAnimation(this, R.anim.shake);
+        }
+        view.startAnimation(mShakeAnimation);
+    }
+    
 	private void rotateMenuImage(int dir) {
 		if (this.image != null) {
 			this.image.setImageBitmap(this.menubmps[dir]);
+            shakeAnimation(this.image);
 		}
 	}
 	
